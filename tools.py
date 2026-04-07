@@ -125,27 +125,46 @@ def calculate_budget(total_budget: int, expenses: str) -> str:
     Trả về bảng chi tiết các khoản chi và số tiền còn lại.
     Nếu vượt ngân sách, cảnh báo rõ ràng số tiền thiếu.
     """
-    # TODO: Sinh viên tự triển khai
-    # - Parse chuỗi expenses thành dict {tên: số_tiền}
-    # - Tính tổng chi phí
-    # - Tính số tiền còn lại = total_budget - tổng chi phí
-    # - Format bảng chi tiết:
-    #
-    #   Bảng chi phí:
-    #   - Vé máy bay: 890.000đ
-    #   - Khách sạn: 650.000đ
-    #   ---
-    #   Tổng chi: 1.540.000đ
-    #   Ngân sách: 5.000.000đ
-    #   Còn lại: 3.460.000đ
-    #
-    # - Nếu âm → "Vượt ngân sách X đồng! Cần điều chỉnh."
-    # - Xử lý lỗi: nếu expenses format sai → trả về thông báo lỗi rõ ràng
-    pass
+    try:
+        expense_dict = {}
+        if expenses.strip():
+            for item in expenses.split(','):
+                name, str_price = item.split(':')
+                expense_dict[name.strip()] = int(str_price.strip())
+    except Exception:
+        return "Lỗi định dạng expenses. Vui lòng nhập đúng định dạng 'tên_khoản:số_tiền', ví dụ: 'vé_máy_bay:890000,khách_sạn:650000'."
+        
+    total_expenses = sum(expense_dict.values())
+    remaining = total_budget - total_expenses
+    
+    result = ["Bảng chi phí:"]
+    for name, amount in expense_dict.items():
+        formatted_name = name.replace("_", " ").capitalize()
+        formatted_amount = f"{amount:,}".replace(",", ".") + "đ"
+        result.append(f"- {formatted_name}: {formatted_amount}")
+        
+    result.append("---")
+    
+    total_exp_str = f"{total_expenses:,}".replace(",", ".") + "đ"
+    budget_str = f"{total_budget:,}".replace(",", ".") + "đ"
+    remaining_str = f"{remaining:,}".replace(",", ".") + "đ"
+    
+    result.append(f"Tổng chi: {total_exp_str}")
+    result.append(f"Ngân sách: {budget_str}")
+    result.append(f"Còn lại: {remaining_str}")
+    
+    if remaining < 0:
+        over_budget_str = f"{abs(remaining):,}".replace(",", ".") + "đ"
+        result.append(f"Vượt ngân sách {over_budget_str}! Cần điều chỉnh.")
+        
+    return "\n".join(result)
 
 # DEBUG
-# flights = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
-# print(flights)
+flights = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
+print("flights:", flights)
 
 hotels = search_hotels.invoke({"city": "Hồ Chí Minh", "max_price_per_night": 1_400_000})
-print(hotels)
+print("hotels:", hotels)
+
+budget = calculate_budget.invoke({"total_budget": 5000000, "expenses": "vé_máy_bay:1800000,khách_sạn:650000"})
+print("budget:", budget)
