@@ -1,3 +1,4 @@
+from pypdf.generic import Destination
 from langchain_core.tools import tool
 
 FLIGHTS_DB = {
@@ -60,13 +61,30 @@ def search_flights(origin: str, destination: str) -> str:
     Trả về danh sách chuyến bay với hãng, giờ bay, giá vé.
     Nếu không tìm thấy tuyến bay, trả về thông báo không có chuyến.
     """
-    # TODO: Sinh viên tự triển khai
-    # - Tra cứu FLIGHTS_DB với key (origin, destination)
-    # - Nếu tìm thấy → format danh sách chuyến bay dễ đọc, bao gồm giá tiền
-    # - Nếu không tìm thấy → thử tra ngược (destination, origin) xem có không,
-    #   nếu cũng không có → "Không tìm thấy chuyến bay từ X đến Y."
-    # - Gợi ý: format giá tiền có dấu chấm phân cách (1.450.000đ)
-    pass
+    # Cố gắng tra cứu chiều đi
+    flights = FLIGHTS_DB.get((origin, destination))
+    is_reverse = False
+    
+    # Nếu không có chiều đi, thử tra ngược
+    if not flights:
+        flights = FLIGHTS_DB.get((destination, origin))
+        is_reverse = True
+        
+    # Nếu cả chiều đi và về đều không có
+    if not flights:
+        return f"Không tìm thấy chuyến bay từ {origin} đến {destination}."
+        
+    # Format kết quả
+    if is_reverse:
+        result = [f"Không có chuyến bay từ {origin} đến {destination}. Dưới đây là chuyến khứ hồi ngược lại ({destination} - {origin}):"]
+    else:
+        result = [f"Danh sách chuyến bay từ {origin} đến {destination}:"]
+        
+    for f in flights:
+        price_formatted = f"{f['price']:,}".replace(",", ".") + "đ"
+        result.append(f"- {f['airline']} | {f['departure']} - {f['arrival']} | Giá: {price_formatted} | hạng {f['class']}")
+        
+    return "\n".join(result)
 
 @tool
 def search_hotels(city: str, max_price_per_night: int = 99999999) -> str:
@@ -113,3 +131,8 @@ def calculate_budget(total_budget: int, expenses: str) -> str:
     # - Nếu âm → "Vượt ngân sách X đồng! Cần điều chỉnh."
     # - Xử lý lỗi: nếu expenses format sai → trả về thông báo lỗi rõ ràng
     pass
+
+
+# Đúng
+result = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
+print(result)
