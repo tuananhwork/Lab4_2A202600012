@@ -95,13 +95,24 @@ def search_hotels(city: str, max_price_per_night: int = 99999999) -> str:
     - max_price_per_night: giá tối đa mỗi đêm (VNĐ), mặc định không giới hạn
     Trả về danh sách khách sạn phù hợp với tên, số sao, giá, khu vực, rating.
     """
-    # TODO: Sinh viên tự triển khai
-    # - Tra cứu HOTELS_DB[city]
-    # - Lọc theo max_price_per_night
-    # - Sắp xếp theo rating giảm dần
-    # - Format đẹp. Nếu không có kết quả → "Không tìm thấy khách sạn tại X
-    #   với giá dưới Y/đêm. Hãy thử tăng ngân sách."
-    pass
+    hotels = HOTELS_DB.get(city)
+    if not hotels:
+        return f"Không có dữ liệu khách sạn cho thành phố {city}."
+        
+    filtered_hotels = [h for h in hotels if h["price_per_night"] <= max_price_per_night]
+    
+    if not filtered_hotels:
+        max_price_str = f"{max_price_per_night:,}".replace(",", ".") + "đ"
+        return f"Không tìm thấy khách sạn tại {city} với giá dưới {max_price_str}/đêm. Hãy thử tăng ngân sách."
+        
+    filtered_hotels.sort(key=lambda x: x["rating"], reverse=True)
+    
+    result = [f"Danh sách khách sạn tại {city}:"]
+    for h in filtered_hotels:
+        price_str = f"{h['price_per_night']:,}".replace(",", ".") + "đ"
+        result.append(f"- {h['name']} | {h['stars']} sao | Khu vực: {h['area']} | Rating: {h['rating']} | Giá: {price_str}/đêm")
+        
+    return "\n".join(result)
 
 @tool
 def calculate_budget(total_budget: int, expenses: str) -> str:
@@ -132,7 +143,9 @@ def calculate_budget(total_budget: int, expenses: str) -> str:
     # - Xử lý lỗi: nếu expenses format sai → trả về thông báo lỗi rõ ràng
     pass
 
+# DEBUG
+# flights = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
+# print(flights)
 
-# Đúng
-result = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
-print(result)
+hotels = search_hotels.invoke({"city": "Hồ Chí Minh", "max_price_per_night": 1_400_000})
+print(hotels)
