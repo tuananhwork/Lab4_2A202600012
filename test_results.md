@@ -14,14 +14,22 @@ Trả lời trực tiếp
 TravelBuddy:
 Chào bạn! Mình rất vui được hỗ trợ bạn lên kế hoạch du lịch 😊
 
-Để tư vấn chuyến đi phù hợp nhất, mình cần biết thêm một vài thông tin:
+Để tư vấn chính xác hơn, mình cần biết thêm một vài thông tin nhé:
 
-1. **Ngân sách dự kiến**: Bạn có khoảng bao nhiêu tiền cho chuyến đi này?
-2. **Xuất phát từ đâu**: Bạn ở thành phố nào? (Hà Nội, TP.HCM, Đà Nẵng...)
-3. **Thời gian**: Bạn muốn đi khoảng bao nhiêu ngày? Có khung thời gian cụ thể không?
-4. **Sở thích**: Bạn thích biển, núi, thành phố, hay khám phá văn hóa?
+**Thông tin cơ bản:**
+- Bạn xuất phát từ đâu? (Hà Nội, TP.HCM, Đà Nẵng...?)
+- Ngân sách dự kiến bao nhiêu?
+- Đi trong bao nhiêu ngày? (hoặc cuối tuần/nghỉ lễ?)
+- Đi một mình hay cùng gia đình/bạn bè?
 
-Với thông tin này, mình sẽ giúp bạn tìm được điểm đến lý tưởng và lên kế hoạch chi tiết về vé máy bay, khách sạn, cùng ước tính chi phí cụ thể nhé! 🌏✈️
+**Sở thích:**
+- Bạn thích kiểu du lịch nào? 
+  - Biển đảo thư giãn (Phú Quốc, Nha Trang, Đà Nẵng...)
+  - Núi rừng khám phá (Sapa, Đà Lạt, Mộc Châu...)
+  - Văn hóa lịch sử (Huế, Hội An...)
+  - Ẩm thực - mua sắm (TP.HCM, Hà Nội...)
+
+Với thông tin này, mình sẽ tìm cho bạn những chuyến bay và khách sạn phù hợp nhất, đảm bảo tối ưu cả ngân sách lẫn trải nghiệm! 🎒✈️
 
 ```
 
@@ -36,16 +44,29 @@ Với thông tin này, mình sẽ giúp bạn tìm được điểm đến lý t
 **Log & Output**:
 ```text
 TravelBuddy đang suy nghĩ...
+Gọi tool: search_flights({'origin': 'Hà Nội', 'destination': 'Đà Nẵng'})
 Trả lời trực tiếp
 
 TravelBuddy:
-Mình cần thêm vài thông tin để tư vấn tốt hơn nhé:
+**Chuyến bay Hà Nội → Đà Nẵng:**
 
-- Bạn dự định đi khoảng bao nhiêu ngày?
-- Ngân sách tổng cho chuyến đi là bao nhiêu?
-- Đi một mình hay đi cùng người khác?
+- **VietJet Air** | 08:30 - 09:50 | **890.000đ** (rẻ nhất)
+- **Bamboo Airways** | 11:00 - 12:20 | 1.200.000đ
+- **Vietnam Airlines** | 06:00 - 07:20 | 1.450.000đ
+- **Vietnam Airlines** | 14:00 - 15:20 | 2.800.000đ (business)
 
-Hoặc nếu bạn chỉ muốn xem thông tin vé máy bay trước, mình sẽ tìm các chuyến bay Hà Nội - Đà Nẵng cho bạn ngay!
+---
+
+**Gợi ý của mình:**
+
+Nếu bạn muốn tiết kiệm, chọn **VietJet Air 890k** là hợp lý nhất. Nếu muốn thoải mái hơn và giờ bay linh hoạt, **Bamboo Airways 1.2 triệu** cũng là lựa chọn tốt.
+
+Để mình tư vấn chi tiết hơn về khách sạn và tổng ngân sách, bạn cho mình biết thêm:
+- **Ngày đi và về** (hoặc số đêm ở Đà Nẵng)?
+- **Tổng ngân sách** dự kiến cho chuyến đi?
+- Bạn muốn ở khu vực nào (gần biển Mỹ Khê, trung tâm, hay gần sân bay)?
+
+Mình sẽ lên cho bạn phương án tối ưu nhất! 😊
 
 ```
 
@@ -67,13 +88,15 @@ Gọi tool: calculate_budget({'total_budget': 5000000, 'expenses': 'vé_máy_bay
 Trả lời trực tiếp
 
 TravelBuddy:
-Xong rồi bạn! Đây là phương án tối ưu cho chuyến đi Phú Quốc 2 đêm với budget 5 triệu:
+Xong rồi! Đây là phương án tối ưu cho chuyến đi Phú Quốc 2 đêm của bạn:
 
 **Chuyến bay:**
-- VietJet Air | 16:00 - 18:15 | 1.100.000đ (khứ hồi)
+- VietJet Air | 16:00 - 18:15 | 1.100.000đ (khứ hồi) | hạng economy
+  *(Chọn chuyến chiều này vì rẻ nhất, giúp tiết kiệm ngân sách)*
 
 **Khách sạn:**
-- Lahana Resort | 3 sao | Dương Đông | 800.000đ/đêm | Rating 4.0
+- Lahana Resort | 3 sao | Khu vực: Dương Đông | Rating: 4.0 | 800.000đ/đêm
+  *(Tổng 2 đêm: 1.600.000đ - vị trí thuận tiện, chất lượng tốt, giá hợp lý)*
 
 **Tổng chi phí ước tính:**
 - Vé máy bay: 1.100.000đ
@@ -82,11 +105,14 @@ Xong rồi bạn! Đây là phương án tối ưu cho chuyến đi Phú Quốc 
 - **Còn lại: 2.300.000đ**
 
 **Gợi ý thêm:**
-- 2.3 triệu còn lại đủ cho ăn uống (~800k), thuê xe máy (~300k/ngày), tham quan (Vinpearl Safari ~600k, cáp treo Hòn Thơm ~600k)
-- Nếu muốn tiết kiệm hơn, có thể chọn 9Station Hostel (200k/đêm) để dành thêm 1.2 triệu cho trải nghiệm
-- Đặt vé sớm để giữ giá tốt, giá có thể tăng gần ngày bay
+- 2,3 triệu còn lại đủ cho ăn uống (khoảng 300-400k/ngày), thuê xe máy (150-200k/ngày), tham quan (vé VinWonders ~600k, cáp treo Hòn Thơm ~600k)
+- Nên ăn hải sản tại chợ đêm Dương Đông để vừa ngon vừa tiết kiệm
+- Thuê xe máy tự túc sẽ rẻ hơn taxi/grab nhiều
 
-Chuyến đi này vừa túi tiền và vẫn đủ thoải mái nhé! 🏝️
+**Phương án thay thế nếu muốn tiết kiệm hơn:**
+- Chọn 9Station Hostel (200k/đêm = 400k/2 đêm) → tiết kiệm thêm 1,2 triệu cho hoạt động vui chơi
+
+Chúc bạn có chuyến đi vui vẻ! 🌴
 
 ```
 
@@ -104,15 +130,16 @@ TravelBuddy đang suy nghĩ...
 Trả lời trực tiếp
 
 TravelBuddy:
-Chào bạn! Mình sẵn sàng hỗ trợ bạn tìm khách sạn phù hợp.
+Chào bạn! Mình sẵn sàng hỗ trợ bạn tìm khách sạn phù hợp. 
 
-Để tư vấn chính xác nhất, bạn cho mình biết thêm một vài thông tin nhé:
+Để tư vấn chính xác nhất, bạn cho mình biết thêm một số thông tin nhé:
 
-- **Bạn muốn đặt khách sạn ở đâu?** (ví dụ: Đà Nẵng, Phú Quốc, Hồ Chí Minh...)
-- **Ngân sách của bạn là bao nhiêu?** (tổng ngân sách hoặc giá tối đa/đêm)
-- **Bạn ở mấy đêm?**
+1. **Bạn muốn đặt khách sạn ở đâu?** (ví dụ: Đà Nẵng, Phú Quốc, Hà Nội, Hồ Chí Minh...)
+2. **Ngân sách của bạn là bao nhiêu?** (tổng ngân sách hoặc giá tối đa/đêm)
+3. **Bạn ở mấy đêm?**
+4. **Có yêu cầu gì đặc biệt không?** (gần biển, trung tâm thành phố, có hồ bơi...)
 
-Với thông tin này mình sẽ tìm cho bạn những lựa chọn tốt nhất! 😊
+Với thông tin này, mình sẽ tìm cho bạn những lựa chọn tốt nhất! 😊
 
 ```
 
@@ -130,15 +157,15 @@ TravelBuddy đang suy nghĩ...
 Trả lời trực tiếp
 
 TravelBuddy:
-Mình là Trợ lý Du lịch của TravelBuddy, chuyên tư vấn về chuyến đi, vé máy bay, khách sạn và ngân sách du lịch tại Việt Nam thôi bạn nhé 😊
+Mình là Trợ lý Du lịch của TravelBuddy, chuyên tư vấn về chuyến đi, vé máy bay, khách sạn và lập kế hoạch du lịch tại Việt Nam thôi bạn ơi 😊
 
-Mình không thể giúp bạn với bài tập lập trình Python được. Nếu bạn cần hỗ trợ về:
-- Lên kế hoạch du lịch
+Mình không thể giúp bạn với bài tập lập trình được. Nhưng nếu bạn đang cần:
+- Lên kế hoạch cho chuyến du lịch
 - Tìm vé máy bay giá tốt
 - Đặt khách sạn phù hợp ngân sách
-- Tính toán chi phí chuyến đi
+- Tư vấn lịch trình và chi phí
 
-Thì cứ hỏi mình nhé! Bạn đang có kế hoạch đi du lịch nào không? 🌴✈️
+Thì cứ hỏi mình nhé! Bạn có dự định đi du lịch đâu không? 🌴✈️
 
 ```
 
@@ -158,31 +185,32 @@ Gọi tool: search_flights({'origin': 'Đà Nẵng', 'destination': 'Cà Mau'})
 Trả lời trực tiếp
 
 TravelBuddy:
-Dựa trên kết quả tìm kiếm, mình có thông tin như sau:
+Mình vừa kiểm tra xong rồi nhé! Đây là thông tin cho bạn:
 
-**Chuyến bay Đà Nẵng → Hà Nội:**
+## Chuyến bay Đà Nẵng → Hà Nội:
 
-Hiện tại không có chuyến bay trực tiếp từ Đà Nẵng đi Hà Nội trong hệ thống (có thể do hướng ngược lại). Tuy nhiên, trên thực tế tuyến này vẫn hoạt động bình thường. Dựa trên giá chiều ngược lại, ước tính:
+Hiện tại hệ thống đang trả về thông tin chuyến **Hà Nội → Đà Nẵng** (chiều ngược lại), các hãng thường có chuyến khứ hồi với giá tương đương:
 
-- VietJet Air: ~890.000 - 1.200.000 VNĐ (economy, giá tốt)
-- Vietnam Airlines: ~1.450.000 - 2.800.000 VNĐ (tùy giờ bay)
-- Bamboo Airways: ~1.200.000 VNĐ
+- **VietJet Air** | 08:30 - 09:50 | **890.000đ** | economy (rẻ nhất)
+- **Bamboo Airways** | 11:00 - 12:20 | **1.200.000đ** | economy
+- **Vietnam Airlines** | 06:00 - 07:20 | **1.450.000đ** | economy
+- **Vietnam Airlines** | 14:00 - 15:20 | **2.800.000đ** | business
 
-**Chuyến bay Đà Nẵng → Cà Mau:**
+## Chuyến bay Đà Nẵng → Cà Mau:
 
-Không có chuyến bay trực tiếp. Bạn sẽ cần:
+❌ **Không có chuyến bay trực tiếp** từ Đà Nẵng đến Cà Mau.
 
-- **Phương án 1:** Bay Đà Nẵng → TP.HCM, sau đó bay TP.HCM → Cà Mau (hoặc xe khách ~5-6 tiếng)
-- **Phương án 2:** Bay Đà Nẵng → Cần Thơ, rồi xe khách xuống Cà Mau (~2-3 tiếng)
+### Gợi ý thay thế:
 
-**Gợi ý:**
+**Để đến Cà Mau từ Đà Nẵng, bạn có 2 phương án:**
 
-Nếu bạn cho mình biết thêm:
-- Bạn định đi Hà Nội hay Cà Mau? (hoặc cả 2?)
-- Ngày dự kiến đi?
-- Ngân sách của bạn?
+1. **Bay Đà Nẵng → TP.HCM**, sau đó:
+   - Bay tiếp TP.HCM → Cà Mau (khoảng 45 phút bay)
+   - Hoặc đi xe khách/ô tô (khoảng 6-7 tiếng)
 
-Mình sẽ tư vấn chi tiết hơn về lộ trình tối ưu và tổng chi phí nhé! 😊
+2. **Bay Đà Nẵng → Cần Thơ** (nếu có), rồi đi xe xuống Cà Mau (khoảng 2-3 tiếng)
+
+Bạn muốn mình tìm chuyến bay Đà Nẵng → TP.HCM để transit xuống Cà Mau không? Hoặc bạn có ngân sách và thời gian cụ thể để mình tư vấn phương án tối ưu nhất nhé! 😊
 
 ```
 
@@ -197,30 +225,44 @@ Mình sẽ tư vấn chi tiết hơn về lộ trình tối ưu và tổng chi p
 **Log & Output**:
 ```text
 TravelBuddy đang suy nghĩ...
+Gọi tool: search_flights({'origin': 'Hồ Chí Minh', 'destination': 'Đà Nẵng'})
+Gọi tool: search_hotels({'city': 'Đà Nẵng'})
+Gọi tool: calculate_budget({'total_budget': 1500000, 'expenses': 'vé_máy_bay_Vietnam_Airlines:1300000,khách_sạn_Mường_Thanh_1_đêm:1800000'})
 Trả lời trực tiếp
 
 TravelBuddy:
-Mình sẽ giúp bạn kiểm tra xem ngân sách 1,5 triệu có đủ cho chuyến đi này không nhé!
+Mình thấy với ngân sách 1,5 triệu, yêu cầu của bạn **không khả thi** vì:
 
-Để tư vấn chính xác, mình cần bạn cho biết thêm:
+**Chi phí thực tế:**
+- Vé Vietnam Airlines (1 chiều): 1.300.000đ
+- Khách sạn Mường Thanh Luxury (1 đêm): 1.800.000đ
+- **Tổng chỉ riêng 2 khoản này: 3.100.000đ** → vượt ngân sách 1.600.000đ
 
-1. **Bạn dự định đi bao nhiêu ngày?** (ví dụ: 2 ngày 1 đêm, 3 ngày 2 đêm...)
-2. **Ngày khởi hành dự kiến?** (để tìm vé máy bay phù hợp)
+---
 
-Tuy nhiên, mình có thể ước tính sơ bộ cho bạn:
+## 🎯 Phương án thay thế phù hợp ngân sách 1,5 triệu:
 
-**Thực tế về ngân sách 1,5 triệu:**
-- Vé máy bay khứ hồi HCM - Đà Nẵng thường dao động **800.000 - 1.500.000 VNĐ** (tùy thời điểm)
-- Khách sạn Mường Thanh Đà Nẵng thường **500.000 - 1.200.000 VNĐ/đêm**
+**Chuyến bay:**
+- VietJet Air | 13:00 - 14:20 | **780.000đ** (tiết kiệm 520k so với Vietnam Airlines)
 
-➡️ **Với 1,5 triệu, ngân sách này khá khó khăn** nếu bạn muốn cả vé bay Vietnam Airlines + khách sạn Mường Thanh (thương hiệu 3-4 sao).
+**Khách sạn:**
+- Memory Hostel | 2 sao | Hải Châu | Rating 4.6 | **250.000đ/đêm** (1 đêm)
+- *Hoặc* Christina's Homestay | 3 sao | An Thượng | Rating 4.3 | **350.000đ/đêm** (tốt hơn một chút)
 
-**Gợi ý thay thế:**
-- Chọn hãng bay giá rẻ (VietJet, Bamboo) thay vì Vietnam Airlines → tiết kiệm 200-400k
-- Chọn khách sạn 2 sao hoặc homestay thay vì Mường Thanh → tiết kiệm 300-500k/đêm
-- Hoặc tăng ngân sách lên **2,5-3 triệu** để đủ cho cả vé + khách sạn + ăn uống
+**Tổng chi phí ước tính (phương án tiết kiệm):**
+- Vé máy bay: 780.000đ
+- Khách sạn (1 đêm): 250.000đ
+- **Tổng: 1.030.000đ**
+- **Còn lại: ~470.000đ** cho ăn uống, di chuyển
 
-Bạn cho mình biết thêm thông tin để mình tìm phương án tốt nhất nhé! 😊
+---
+
+**Gợi ý thêm:**
+- Nếu muốn giữ Vietnam Airlines + Mường Thanh, bạn cần tối thiểu **3,5 triệu** (bao gồm vé khứ hồi + 1 đêm + ăn uống)
+- Với 1,5 triệu, bạn chỉ đủ đi **1 chiều** và ở khách sạn bình dân
+- Nếu muốn trải nghiệm tốt hơn, cân nhắc tăng ngân sách hoặc chọn điểm đến gần hơn
+
+Bạn muốn mình tư vấn thêm phương án nào không? 😊
 
 ```
 
@@ -238,12 +280,24 @@ TravelBuddy đang suy nghĩ...
 Trả lời trực tiếp
 
 TravelBuddy:
-Mình cần thêm vài thông tin để tư vấn chính xác hơn nhé:
+Mình sẽ giúp bạn lên kế hoạch chuyến nghỉ dưỡng Vinpearl nhé! Để tư vấn chính xác nhất, mình cần biết thêm:
 
-1. **Bạn muốn đi Vinpearl ở đâu?** (Phú Quốc, Nha Trang, Đà Nẵng, hay địa điểm khác?)
-2. **Dự kiến đi vào khoảng thời gian nào?** (tuần này, tháng sau, hay linh động?)
+**Bạn muốn đi Vinpearl ở đâu?** (Phú Quốc, Nha Trang, Hội An, Đà Nẵng, Nam Hội An...?)
 
-Với ngân sách 15 triệu cho 2 người đi 3 đêm, mình sẽ giúp bạn tính toán xem có đủ không và gợi ý phương án tối ưu nhất! 😊
+Trong khi đó, mình có thể chia sẻ sơ bộ về ngân sách 15 triệu cho 2 người, 3 đêm:
+
+**Phân bổ ngân sách dự kiến:**
+- Vé máy bay khứ hồi 2 người: 3-5 triệu (tùy điểm đến)
+- Khách sạn 3 đêm: 6-9 triệu (Vinpearl thường 2-3 triệu/đêm)
+- Ăn uống + di chuyển: 2-3 triệu
+
+**Gợi ý điểm đến phù hợp ngân sách:**
+
+1. **Vinpearl Nha Trang** - vé máy bay rẻ nhất từ Hà Nội, nhiều lựa chọn resort
+2. **Vinpearl Phú Quốc** - đẹp nhất nhưng vé máy bay đắt hơn
+3. **Vinpearl Nam Hội An** - cân bằng giá và trải nghiệm
+
+Bạn cho mình biết muốn đi đâu để mình tìm chuyến bay và khách sạn cụ thể nhé! 😊
 
 ```
 
@@ -273,7 +327,7 @@ TravelBuddy:
 - VietJet Air | 15:00 - 16:00 (khứ hồi) | 1.300.000đ
 
 **Khách sạn:**
-- Lahana Resort | 3 sao | Dương Đông | 800.000đ/đêm | Rating 4.0
+- Lahana Resort | 3 sao | Dương Đông | 800.000đ/đêm | Rating: 4.0
 
 **Tổng chi phí ước tính:**
 - Vé máy bay khứ hồi: 1.300.000đ
@@ -284,11 +338,11 @@ TravelBuddy:
 ---
 
 **Gợi ý thêm:**
-- 900k còn lại đủ cho ăn uống hải sản (1 bữa ~200-300k), thuê xe máy (~150k/ngày), và mua vài món đặc sản về
+- 900k còn lại đủ cho ăn uống (hải sản chợ đêm Dương Đông ~300k), thuê xe máy (~150k/ngày), và vài ly bia biển
 - Nếu muốn tiết kiệm hơn, chọn 9Station Hostel (200k/đêm) thì còn 1.5 triệu xài thoải mái
-- Bay chiều tránh mất buổi sáng làm việc, tối đến là ăn nhậu biển ngay 😎
+- Bay chiều 15h thì sáng còn làm việc được, chiều đến Phú Quốc kịp ăn tối ngắm hoàng hôn
 
-Xong task rồi hãy book vé nhé, nóng thế này mà không đi biển thì phí!
+**Đi đi, task để mai lo! 😎**
 
 ```
 
@@ -303,16 +357,36 @@ Xong task rồi hãy book vé nhé, nóng thế này mà không đi biển thì 
 **Log & Output**:
 ```text
 TravelBuddy đang suy nghĩ...
+Gọi tool: search_flights({'origin': 'Hà Nội', 'destination': 'Đà Nẵng'})
+Gọi tool: search_flights({'origin': 'Hà Nội', 'destination': 'Phú Quốc'})
 Trả lời trực tiếp
 
 TravelBuddy:
-Để tư vấn chính xác hơn, mình cần hỏi thêm vài thông tin nhé:
+## So sánh giá vé máy bay:
 
-1. **Ngân sách** của bạn khoảng bao nhiêu cho chuyến đi này?
-2. **Số ngày** dự định đi (hoặc số đêm ở lại)?
-3. **Số người** đi cùng?
+**Đà Nẵng - RẺ HƠN** ✈️
+- VietJet Air | 08:30 - 09:50 | **890.000đ** (rẻ nhất)
+- Bamboo Airways | 11:00 - 12:20 | 1.200.000đ
+- Vietnam Airlines | 06:00 - 07:20 | 1.450.000đ
 
-Với thông tin này, mình sẽ so sánh giá vé Hà Nội → Đà Nẵng và Hà Nội → Phú Quốc, rồi tư vấn phương án tối ưu nhất về cả chi phí lẫn trải nghiệm cho bạn! ✈️
+**Phú Quốc**
+- VietJet Air | 16:00 - 18:15 | **1.100.000đ** (rẻ nhất)
+- VietJet Air | 10:00 - 12:15 | 1.350.000đ
+- Vietnam Airlines | 07:00 - 09:15 | 2.100.000đ
+
+---
+
+## Kết luận:
+
+**→ Đà Nẵng rẻ hơn 210.000đ** (chỉ tính vé 1 chiều)
+
+Nếu tính khứ hồi, bạn tiết kiệm được khoảng **420.000đ** khi chọn Đà Nẵng thay vì Phú Quốc.
+
+**Gợi ý của mình:**
+- **Đà Nẵng**: Phù hợp nếu bạn thích khám phá đô thị, ăn uống đa dạng, gần Hội An/Bà Nà. Chi phí ăn uống và di chuyển cũng rẻ hơn Phú Quốc.
+- **Phú Quốc**: Chọn nếu bạn muốn nghỉ dưỡng biển, lặn ngắm san hô, không ngại chi thêm một chút.
+
+Bạn có ngân sách bao nhiêu và dự định đi mấy ngày để mình tư vấn chi tiết hơn về khách sạn và tổng chi phí nhé? 😊
 
 ```
 
