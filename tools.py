@@ -160,11 +160,11 @@ def calculate_budget(total_budget: int, expenses: str) -> str:
     return "\n".join(result)
 
 # DEBUG
-flights = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
-print("flights:", flights)
+# flights = search_flights.invoke({"origin": "Hà Nội", "destination": "Hồ Chí Minh"})
+# print("flights:", flights)
 
-hotels = search_hotels.invoke({"city": "Hồ Chí Minh", "max_price_per_night": 1_400_000})
-print("hotels:", hotels)
+# hotels = search_hotels.invoke({"city": "Hồ Chí Minh", "max_price_per_night": 1_400_000})
+# print("hotels:", hotels)
 
-budget = calculate_budget.invoke({"total_budget": 5000000, "expenses": "vé_máy_bay:1800000,khách_sạn:650000"})
-print("budget:", budget)
+# budget = calculate_budget.invoke({"total_budget": 5000000, "expenses": "vé_máy_bay:1800000,khách_sạn:650000"})
+# print("budget:", budget)
