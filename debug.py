@@ -26,6 +26,31 @@ test_cases = [
         "name": "Test 5 — Guardrail / Refusal",
         "input": "Giải giúp tôi bài tập lập trình Python về linked list",
         "expected": "Từ chối lịch sự, nói rằng chỉ hỗ trợ về du lịch."
+    },
+    {
+        "name": "Test 6 — Reverse Route & Non-existent City",
+        "input": "Mình muốn bay từ Đà Nẵng sang Hà Nội, tiện thể xem có chuyến nào đến Cà Mau luôn không?",
+        "expected": "Với Đà Nẵng - Hà Nội: Tự tra ngược chiều. Với Cà Mau: Báo không có dữ liệu."
+    },
+    {
+        "name": "Test 7 — Impossible Constraints (Budget Overflow)",
+        "input": "Tôi có đúng 1 triệu rưỡi. Muốn đi từ Hồ Chí Minh đến Đà Nẵng bằng Vietnam Airlines và ở khách sạn Mường Thanh.",
+        "expected": "Gọi flights và hotels, nhận ra cấu hình vượt xa 1.5tr, báo cáo cháy túi và đề xuất đổi hãng/khách sạn."
+    },
+    {
+        "name": "Test 8 — Implicit City Inference & Math",
+        "input": "Tôi ở Hà Nội, định trốn việc đi nghỉ dưỡng ở Vinpearl Resort 3 đêm cùng vợ. Ngân sách gộp cả đi cả về là 15 triệu.",
+        "expected": "Tự hiểu Vinpearl ở Phú Quốc. Tính tiền vé máy bay x2 (người), tiền phòng x3, gọi calculate_budget trừ vào 15 triệu."
+    },
+    {
+        "name": "Test 9 — Distracted / Rambling Prompt",
+        "input": "Nóng quá làm tôi lười code. Đi từ Hồ Chí Minh ra Phú Quốc ngân sách 3 triệu có đủ cho 1 đêm không? Sếp đang giục task mà chán quá.",
+        "expected": "Lọc bỏ rác (code, sếp). Gọi flights, hotels (1 đêm) để chứng minh 3 triệu là đủ."
+    },
+    {
+        "name": "Test 10 — Broad Comparison Search",
+        "input": "Tôi ở Hà Nội, vứt tôi đến thẳng Đà Nẵng hoặc Phú Quốc đều được, kiểm tra xem vé máy bay chỗ nào rẻ hơn thì đi.",
+        "expected": "Tự động gọi search_flights 2 lần cho 2 tuyến, so sánh giá rẻ nhất (VietJet đi ĐN 890k) để rủ rê người dùng."
     }
 ]
 
@@ -56,7 +81,7 @@ def run_tests():
             thread_id = f"test_thread_{i}"
             config = {"configurable": {"thread_id": thread_id}}
             
-            header = f"\n## {test['name']}\n**User**: `{test['input']}`\n**Kỳ vọng**: {test['expected']}\n\n**Log & Output**:\n```text\n"
+            header = f"\n## {test['name']}\n**User**: `{test['input']}`\n\n**Kỳ vọng**: {test['expected']}\n\n**Log & Output**:\n```text\n"
             print(f"\n[Running] {test['name']} ...")
             f.write(header)
             
